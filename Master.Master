@@ -1,0 +1,95 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Master.master.cs" Inherits="ASPFinal.Master" %>
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+    <title></title>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/>
+
+    <!-- Bootstrap CSS -->
+    <link href="Content/bootstrap.css" rel="stylesheet" />
+    <link href="CSS/Main.css" rel="stylesheet" />
+    <link href="CSS/NavBar.css" rel="stylesheet" />
+
+    <script src="Scripts/jquery-3.3.1.js"></script>
+    <script src="Scripts/popper.js"></script>
+    <script src="Scripts/bootstrap.js"></script>
+
+    <asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder>
+    
+    <style>
+        .menu:hover {
+            background-color: #007777;
+        }
+    </style>
+
+</head>
+<body>
+<form id="form1" runat="server">
+    <div>
+
+        <asp:ContentPlaceHolder ID="ContentPlaceHolderMasterBody" runat="server">
+            <%-- Start Navbar --%>
+            <nav id="menu" class="navbar navbar-dark navbar-expand-lg py-0">
+                <a class="navbar-brand" href="http://www.nscc.edu/">
+                    <img src="Images/Nashville_State_CC.jpg" height="70" width="120" alt="Nashville State Community College Logo"/>
+                </a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+                        aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav mr-auto">
+                        <li class="nav-item">
+                            <a class="nav-link menu" href="Default.aspx">Home<span class="sr-only">(current)</span></a>
+                        </li>
+                        <li class="nav-item">
+                            <a id="mnuComputersRooms" href="ComputersRooms.aspx" class="invisible" runat="server">Display Database<span class="sr-only">Display Database Page</span></a>
+                        </li>
+                        <li class="nav-item">
+                            <a id="computer" href="Computers1.aspx" class="invisible" runat="server">Computers<span class="sr-only">Manage Computers Page</span></a>
+                        </li>
+                        <li class="nav-item">
+                            <a id="software" href="Software1.aspx" class="invisible" runat="server">Software<span class="sr-only">Manage Software Page</span></a>
+                        </li>
+                        <li class="nav-item">
+                            <a id="mnuUsers" href="Users.aspx" class="invisible" runat="server">Users<span class="sr-only">Manage Users Page</span></a>
+                        </li>
+                    </ul>
+
+                    <div class="navbar-nav">
+                        <div class="form-inline nav-link" id="menuLogin1">
+                            <a class="dropdown-toggle" data-toggle="dropdown" id="navLogin" runat="server">Login</a>
+                            <div class="dropdown-menu dropdown-menu-right" style="padding: 10px 10px 20px 10px; width: 300px;">
+                                <div class="form-group p-1">
+                                    <asp:TextBox CssClass="form-control w-100" ID="txtUserID" runat="server" placeholder="User ID"></asp:TextBox>
+                                </div>
+                                <div class="form-group p-1">
+                                    <asp:TextBox CssClass="form-control w-100" ID="txtPassword" runat="server" placeholder="Password" TextMode="Password"></asp:TextBox>
+                                </div>
+                                <div class="form-group p-1">
+                                    <asp:Button CssClass="btn btn-primary btn-block" BackColor="#007777" BorderColor="#4A8080" ID="btnLogin" runat="server" Text="Sign In"/>
+                                </div>
+                            </div>
+                        </div>
+                        <div>
+                            <asp:LinkButton ID="lnkLogout" CssClass="invisible" runat="server">Logout</asp:LinkButton>
+                        </div>
+                        <asp:Label ID="mlblUser" runat="server" CssClass="navbar-text pad-right30 pad-left20" Text=""></asp:Label>
+                    </div>
+                </div>
+            </nav>
+            <%-- End Navbar --%>
+
+        </asp:ContentPlaceHolder>
+
+        <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+            <%-- This placeholder is where your forms will be placed at runtime --%>
+        </asp:ContentPlaceHolder>
+    </div>
+</form>
+</body>
+</html>
